@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コマンドについて</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <div style="border: 1px solid black; display: flex;">
+        <div style="flex: 1;">
+            <ul>
+                <li><a href="#marge">マージ</a></li>
+                <li><a href="#ribart">リバート</a></li>
+                <li><a href="#burandi">ブランチ</a></li>
+                <li><a href="#commit">コミット</a></li>
+                <li><a href="#puru">プル</a></li>
+                <li><a href="#sonota">その他</a></li>
+            </ul>
+        </div>
+        <div style="flex: 1;">
+            <ul>
+                <li><a href="#pushu">プッシュ</a></li>
+                <li><a href="#fairu">ファイル</a></li>
+                <li><a href="#ribace">リベース</a></li>
+                <li><a href="#sutash">スタッシュ</a></li>
+                <li><a href="#sutash">リセット</a></li>
+            </ul>
+        </div>
+    </div>
+    
+<div id="marge">
+   <h1>マージのやり方</h1> 
+<p>①ブランチに移動する<br>
+コマンド：git checkout ブランチの名前 <br>
+②次にコミット<br>
+コマンド：git commit -a -m "コメント"<br>
+③マージしたいブランチに移動<br>
+コマンド：git checkout マージしたいブランチ名<br>
+④マージ操作<br>
+コマンド：git merge マージするブランチ名<br>
+⑤マージしたファイルを更新<br>
+コマンド：git push origin 更新するブランチ名<br>
+</p>
+<h2>マージの取り消し</h2>
+<p>コマンド：git merge --abort</p>
+</div>
+
+<div id="ribart">
+    <h1>リバートのやり方</h1>
+ <p> ①まずログを見て、取り消したいコミットのコミットIDを取得する<br>
+    コマンド：　git log  （qでログを閉じることができる）<br>
+    ②消したいコミットのコミットID（commit~（head までの間）をコピー<br>
+    （例）commit ac1214f3d4cbf2305999f4123f9356e08dec97e5 (HEAD -> feature/confict2)<br>
+    ③コピーしたcommitIDを下のコマンドに打ち込む<br>
+    コマンド：(例) git revert ac1214f3d4cbf2305999f4123f9356e08dec97e5 <br>
+</p>
+</div>
+
+<div id="burandi">
+    <h1>ブランチのやり方</h1>
+<p>・ブランチ作成<br>
+コマンド：　git branch 作成するブランチ名<br>
+・ブランチ移動<br>
+コマンド：　git checkout 行きたいブランチ名<br>
+・ブランチ削除<br>
+コマンド：　git branch -d 消したいブランチ名</p>
+</div>
+
+<div id="commit">
+    <h1>コミットのやり方</h1>
+   <p> コマンド：　git commit -a -m "コミットコメント"</p>
+</div>
+
+<div id="puru">
+    <h1>プルのやり方</h1>
+    <p>①プル操作<br>
+    コマンド：　git pull <br>
+</p>
+</div>
+<div id="push">
+    <h1>プッシュのやり方</h1>
+   <p>①まず変更をコミットする<br>
+    コマンド：　git commit -a -m "コミットコメント"<br>
+    ②次にプッシュ操作<br>
+    コマンド：　git push origin プッシュするブランチ名
+</p> 
+</div>
+
+<div id="fair">
+    <h1>ファイルの編集のやり方</h1>
+   <p> ①デスクトップに新規ファイルを作成する<br>
+    
+    ファイルをコマンドでステージにアップするやり方<br>
+    コマンド：　git add アップするファイル名<br>
+</p>
+</div>
+
+<div id="ribace">
+    <h1>リベースのやり方</h1>
+    <p>①リベースを行いたいブランチに移動します。<br>
+    コマンド：　git checkout リベースを行いたいブランチ<br>
+    ②リベースしたい対象のブランチを指定して、リベースコマンドを実行します。<br>
+    コマンド：　git rebase リベース先のブランチ<br>
+    ③リベース中にコンフリクトが発生した場合、コンフリクトを解決し、git addコマンドでステージングします。<br>
+    ④リベースを継続します。<br>
+    コマンド：　git rebase --continue <br>
+    ⑤リベースが完了したら、リベース先のブランチに移動します。<br>
+    コマンド：　git checkout リベース先のブランチ<br>
+    ⑥リベース元のブランチをマージします（もしくは不要であれば削除します）。<br>
+    コマンド：　git merge リベース元のブランチ <br>
+</p>
+</div>
+
+<div id="sutash">
+    <h1>スタッシュのやり方</h1>
+    <p>意味：Gitでのスタッシュ（stash）は、まだコミットされていない変更を一時的に保存するための仕組みです。<br>
+    ①変更をスタッシュに保存します。<br>
+    コマンド：　git stash <br>
+    ・スタッシュされた変更を戻す（取り出す）やり方 <br>
+    コマンド：　git stash pop <br>
+    ・スタッシュに変更を保存するときに、メッセージを付け加える場合は、次のようにする <br>
+    コマンド：　git stash save "コメント" <br>
+    ・スタッシュの一覧を表示するには、以下のコマンドを使用します。<br>
+    コマンド：　git stash list <br>
+</p>
+</div>
+
+<div id="sonota">
+    <h1>コミットの取り消し方法</h1>
+    <p>・・・この方法は、最新のコミットを取り消すために使用されます。これにより、最新のコミットが無かったことになります。<br>
+    コマンド：　git reset HEAD~1  <br>
+    <h1>コンフリクトの手動解消</h1>
+    コンフリクトの意味：1つのファイルともう一つのファイルをマージしたときに起きる衝突現象<br>
+    解消方法はそのファイルを開いて直していく<br>
+    <h1>ログを見る方法</h1>
+    コマンド：git log <br>
+    （ログから出る方法は「ｑ」を押す）
+</p>
+</div>
+</body>
